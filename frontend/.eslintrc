@@ -1,0 +1,6 @@
+{
+    // The role forcing stict eqaulity comparison
+    "rules": {
+        "eqeqeq":"off"
+    }
+}
