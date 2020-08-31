@@ -9,7 +9,7 @@ const LogoWrapper = styled.div`
   width: 100vw;
   background-color: ${(props) => props.theme.mainBrand};
   position: relative;
-  z-index: 10;
+  z-index: 100;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
