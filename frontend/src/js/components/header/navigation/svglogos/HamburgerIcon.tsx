@@ -15,10 +15,9 @@ const LogoSvg = styled.svg`
   }
 `
 //Interfaces
-interface INavLogoProps {}
 
 //React Component
-const NavLogo: React.FC<INavLogoProps> = ({}) => {
+const HamburgerIcon: React.FC = () => {
   return (
     <LogoSvg>
       <g fillRule="evenodd">
@@ -27,4 +26,4 @@ const NavLogo: React.FC<INavLogoProps> = ({}) => {
     </LogoSvg>
   )
 }
-export default NavLogo
+export default HamburgerIcon
