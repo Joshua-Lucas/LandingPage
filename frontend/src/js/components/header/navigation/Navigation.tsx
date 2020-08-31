@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { useSpring, animated } from 'react-spring'
 import LogoContainer from './LogoContainer'
 
 //Styled Components
@@ -19,11 +18,12 @@ const NavWrapper = styled.div`
 const NavDiv = styled.div`
   position: relative;
 `
-const NavContainer = styled(animated.nav)<ITest>`
-  height: 27.5rem;
+const NavContainer = styled.nav<ITest>`
+  height: 54.187vh;
   width: 100vw;
   background-color: ${(props) => props.theme.mainBrand};
   padding: 3.55rem 0 5rem;
+  z-index: 50;
   position: absolute;
   top: -100;
   right: 0;
@@ -69,7 +69,7 @@ const NavLink = styled(Link)`
 `
 //Interfaces
 interface ITest {
-  toggle?: boolean
+  toggle: boolean
 }
 //React Component
 const Navigation: React.FC = () => {
