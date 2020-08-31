@@ -14,6 +14,10 @@ const Theme = {
   headerDark: Colors.Neutral.Dark,
   signupTextLight: Colors.Accent.Light,
   signupTextDark: Colors.Text.SignUp,
+
+  // Media Queries
+  tablet: '768px',
+  desktop: '1440px',
 }
 
 export default Theme

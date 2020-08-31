@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const LogoSvg = styled.svg`
   width: 2.56rem;
   height: 3rem;
-
   grid-column: 2/3;
   justify-self: center;
 `

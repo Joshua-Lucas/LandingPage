@@ -1,18 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import Logo from './svglogos/Logo'
-import NavLogo from './svglogos/NavLogo'
+import HamburgerIcon from './svglogos/HamburgerIcon'
 import CloseLogo from './svglogos/CloseLogo'
 
 const LogoWrapper = styled.div`
   height: 4.5rem;
   width: 100vw;
   background-color: ${(props) => props.theme.mainBrand};
-
+  position: relative;
+  z-index: 10;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   align-items: center;
+
+  @media (min-width: ${(props) => props.theme.tablet}) {
+    height: auto;
+    width: auto;
+    z-index: 0;
+    padding-right: 4.86vw;
+  }
 `
 
 const NavButton = styled.button`
@@ -22,6 +30,14 @@ const NavButton = styled.button`
   background: none;
   appearance: none;
   justify-self: end;
+
+  &:focus {
+    outline: transparent;
+  }
+
+  @media (min-width: ${(props) => props.theme.tablet}) {
+    display: none;
+  }
 `
 //INTERFACES
 interface ILogoContainer {
@@ -34,8 +50,11 @@ const LogoContainer: React.FC<ILogoContainer> = ({ activateNav, toggle }) => {
   return (
     <LogoWrapper>
       <Logo />
-      <NavButton name="Toggle Nav Menu" onClick={() => activateNav(!toggle)}>
-        {!toggle ? <NavLogo /> : <CloseLogo />}
+      <NavButton
+        aria-label="Navigation Toggle Dropdown"
+        onClick={() => activateNav(!toggle)}
+      >
+        {!toggle ? <HamburgerIcon /> : <CloseLogo />}
       </NavButton>
     </LogoWrapper>
   )
