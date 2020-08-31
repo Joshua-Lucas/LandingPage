@@ -6,6 +6,7 @@ import Theme from './utils/Styles/Theme'
 import GlobalStyle from './utils/Styles/GlobalStyle'
 // Component Imports
 import Header from './components/header/Header'
+import Main from './components/main/Main'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route to=" /">
             <GlobalStyle />
             <Header />
+            <Main />
           </Route>
         </Switch>
       </Router>
