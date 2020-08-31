@@ -31,6 +31,10 @@ const NavButton = styled.button`
   appearance: none;
   justify-self: end;
 
+  &:focus {
+    outline: transparent;
+  }
+
   @media (min-width: ${(props) => props.theme.tablet}) {
     display: none;
   }

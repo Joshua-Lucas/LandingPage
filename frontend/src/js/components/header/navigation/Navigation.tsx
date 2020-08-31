@@ -57,8 +57,10 @@ const NavLink = styled(Link)`
   font-size: 1.25rem;
   font-family: 'Montserrat';
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${(props) => props.theme.accentDark};
+    outline: transparent;
   }
 
   @media (min-width: ${(props) => props.theme.tablet}) {
