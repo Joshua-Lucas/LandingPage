@@ -5,20 +5,47 @@ import { useSpring, animated } from 'react-spring'
 import LogoContainer from './LogoContainer'
 
 //Styled Components
+const NavWrapper = styled.div`
+  @media (min-width: ${(props) => props.theme.tablet}) {
+    height: 4.5rem;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${(props) => props.theme.mainBrand};
+  }
+`
+
 const NavDiv = styled.div`
   position: relative;
 `
-const NavContainer = styled(animated.nav)<ILinkContainer>`
+const NavContainer = styled(animated.nav)<ITest>`
   height: 27.5rem;
   width: 100vw;
   background-color: ${(props) => props.theme.mainBrand};
   padding: 3.55rem 0 5rem;
   position: absolute;
-  top: -200%;
+  top: -100;
   right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: ${(props) =>
+    !props.toggle ? 'translateY(-100%)' : 'translateY(0%)'};
+
+  transition: ${(props) =>
+    !props.toggle ? 'transform 0.2s ease-in' : 'transform 0.3s ease-out'};
+
+  @media (min-width: ${(props) => props.theme.tablet}) {
+    position: static;
+    width: auto;
+    padding: 0;
+    padding-right: 8.75vw;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    transform: translateY(0);
+  }
 `
 
 const NavLink = styled(Link)`
@@ -33,36 +60,31 @@ const NavLink = styled(Link)`
   &:hover {
     color: ${(props) => props.theme.accentDark};
   }
+
+  @media (min-width: ${(props) => props.theme.tablet}) {
+    padding: 0 1rem;
+  }
 `
 //Interfaces
-interface ILinkContainer {
-  isActive: boolean
+interface ITest {
+  toggle?: boolean
 }
-
 //React Component
 const Navigation: React.FC = () => {
   const [toggleNav, setToggleNav] = useState(false)
 
-  const transIn = useSpring({
-    opacity: toggleNav ? 1 : 0,
-    transform: toggleNav ? 'translateY(0)' : 'translateY(-200%)',
-  })
   return (
-    <React.Fragment>
+    <NavWrapper>
       <LogoContainer activateNav={setToggleNav} toggle={toggleNav} />
       <NavDiv>
-        <NavContainer
-          style={transIn}
-          isActive={toggleNav}
-          aria-labelledby="Site Navigation"
-        >
+        <NavContainer toggle={toggleNav} aria-label="Navigation Label">
           <NavLink to="/#">Community</NavLink>
           <NavLink to="/#">Store</NavLink>
           <NavLink to="/#">Support</NavLink>
           <NavLink to="/#">Account</NavLink>
         </NavContainer>
       </NavDiv>
-    </React.Fragment>
+    </NavWrapper>
   )
 }
 export default Navigation
