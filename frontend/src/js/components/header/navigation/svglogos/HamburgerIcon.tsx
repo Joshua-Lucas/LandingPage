@@ -6,10 +6,10 @@ const LogoSvg = styled.svg`
   width: 2.125rem;
   height: 1.25rem;
   margin-right: 2rem;
-
   grid-column: 3/4;
   justify-self: end;
   fill: white;
+
   &:hover {
     fill: ${(props) => props.theme.accentDark};
   }

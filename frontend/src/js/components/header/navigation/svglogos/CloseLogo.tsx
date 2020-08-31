@@ -6,19 +6,18 @@ const LogoSvg = styled.svg`
   width: 1.7rem;
   height: 1.7rem;
   margin-right: 2rem;
-
   grid-column: 3/4;
   justify-self: end;
   fill: white;
+
   &:hover {
     fill: ${(props) => props.theme.accentDark};
   }
 `
 //Interfaces
-interface ICloseLogoProps {}
 
 //React Component
-const CloseLogo: React.FC<ICloseLogoProps> = ({}) => {
+const CloseLogo: React.FC = () => {
   return (
     <LogoSvg>
       <path
