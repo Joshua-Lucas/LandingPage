@@ -8,11 +8,11 @@ const GlobalStyle = createGlobalStyle`
     //fonts
     @font-face {
         font-family: 'Roboto', sans-serif;
-        src: url(${Fonts.roboto.medium}) format('ttf');
+        src: url(${Fonts.robotoMedium}) format('ttf');
     }
     @font-face {
         font-family: 'RobotoBlack', sans-serif;
-        src: url(${Fonts.roboto.black}) format('ttf');
+        src: url(${Fonts.robotoBlack}) format('ttf');
     }
 
     @font-face {

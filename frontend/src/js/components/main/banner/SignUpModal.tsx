@@ -23,7 +23,6 @@ const SignUpWrapper = styled.div`
 
   @media (min-width: 1024px) {
     max-width: 369px;
-    /* margin-left: 8.75vw; */
     right: 8.75vw;
     left: initial;
     top: 80%;
