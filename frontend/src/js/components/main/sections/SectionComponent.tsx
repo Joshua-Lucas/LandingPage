@@ -96,7 +96,8 @@ const SectionComponent: React.FC<ISectionComponentProps> = ({
   const el = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    let options = { threshold: 0.5 }
+    // tracks when sections become visable
+    let options = { threshold: 0.25 }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => setVisable(entry.isIntersecting))
     }, options)
