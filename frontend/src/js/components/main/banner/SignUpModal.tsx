@@ -101,6 +101,7 @@ const SignUpModal: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     api.postEmail(emailData)
+    setEmailData({ email: '' })
   }
 
   return (
