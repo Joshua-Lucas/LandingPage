@@ -3,8 +3,12 @@ import styled from 'styled-components'
 import SignUpModal from './SignUpModal'
 
 //Styled Components
+
 const BannerWrapper = styled.div`
   position: relative;
+  @media (min-width: 1024px) {
+    background-color: ${(props) => props.theme.accentDark};
+  }
 `
 
 const VideoElement = styled.video`
