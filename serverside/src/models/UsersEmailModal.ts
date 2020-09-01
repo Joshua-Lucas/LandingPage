@@ -17,7 +17,7 @@ export interface INewUserEmail {
 export const createNewUser = (user: INewUserEmail) =>
   database.query(
     `
-  INSERT INTO usersemails (email)
+  INSERT INTO usersemailtable (email)
   VALUES ($1)
   ON CONFLICT (email)
   WHERE email = ($1)
