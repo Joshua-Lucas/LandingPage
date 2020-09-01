@@ -18,7 +18,27 @@ const NavWrapper = styled.div`
 const NavDiv = styled.div`
   position: relative;
 `
-const NavContainer = styled.nav<ITest>`
+
+const Mask = styled.div<IToggleProps>`
+  height: 100vh;
+  z-index: 30;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(23, 23, 23, 0.84);
+  width: 100%;
+  display: ${(props) => (props.toggle ? 'block' : 'none')};
+  transform: ${(props) =>
+    !props.toggle ? 'translateY(-500%)' : 'translateY(0%)'};
+
+  transition: ${(props) =>
+    !props.toggle ? 'transform 0.2s ease-in' : 'transform 0.3s ease-out'};
+  @media (min-width: ${(props) => props.theme.tablet}) {
+    display: none;
+  }
+`
+
+const NavContainer = styled.nav<IToggleProps>`
   height: 54.187vh;
   width: 100vw;
   background-color: ${(props) => props.theme.mainBrand};
@@ -68,9 +88,10 @@ const NavLink = styled(Link)`
   }
 `
 //Interfaces
-interface ITest {
+interface IToggleProps {
   toggle: boolean
 }
+
 //React Component
 const Navigation: React.FC = () => {
   const [toggleNav, setToggleNav] = useState(false)
@@ -85,6 +106,7 @@ const Navigation: React.FC = () => {
           <NavLink to="/#">Support</NavLink>
           <NavLink to="/#">Account</NavLink>
         </NavContainer>
+        <Mask toggle={toggleNav}></Mask>
       </NavDiv>
     </NavWrapper>
   )
