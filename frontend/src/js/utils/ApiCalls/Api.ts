@@ -2,7 +2,7 @@
 const ScoppechipoURL =
   'http://api.staging.scoppechiohosting.com/interview-test/index.json'
 
-const url = 'http://localhost:3000/api/usersemail'
+const url = 'http://localhost:3030/api/emails'
 
 // interfaces
 export interface IUserEmail {
