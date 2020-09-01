@@ -1,6 +1,9 @@
-# LandingPage
+# TestPage
+
 
 To run just frontend run "npm run-frontend"
+
+
 
 ## Requirements
 - postgres: `brew install postgres`
@@ -39,5 +42,5 @@ make -j2 install
 make -j2 dev
 ```
 
-You should now be able to access the app at http://localhost:8080
+You should now be able to access the app at http://localhost:3000
 
