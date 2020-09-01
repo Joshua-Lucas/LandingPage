@@ -1,4 +1,7 @@
 # LandingPage
+
+To run just frontend run "npm run-frontend"
+
 ## Requirements
 - postgres: `brew install postgres`
 - node: 

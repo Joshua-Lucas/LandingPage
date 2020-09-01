@@ -17,8 +17,9 @@ const FooterHelpWraper = styled.div`
   }
 `
 const Helpers = styled.div``
-const NavTitle = styled.h3`
+const NavTitle = styled.h1`
   text-transform: uppercase;
+  font-size: 1.25rem;
   font-weight: 900;
   margin-left: 1rem;
   line-height: 26px;

@@ -73,8 +73,8 @@ const ArticleText = styled.p`
 
 //Interfaces
 interface ISectionComponentProps {
-  dark?: boolean
-  reverse?: boolean
+  dark?: boolean | string
+  reverse?: boolean | string
   First?: boolean | string
   Data: TSectionData
 }
@@ -96,7 +96,7 @@ const SectionComponent: React.FC<ISectionComponentProps> = ({
   const el = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // tracks when sections become visable
+    // tracks when sections becomes visable
     let options = { threshold: 0.25 }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => setVisable(entry.isIntersecting))
@@ -106,8 +106,9 @@ const SectionComponent: React.FC<ISectionComponentProps> = ({
     }
   }, [])
 
-  const props = useSpring({
-    config: { mass: 1, tension: 170, friction: 50 },
+  // ANIMATIONS
+  const transIn = useSpring({
+    // config: { mass: 1, tension: 170, friction: 50 },
     transform: visable ? 'translate3d(0,0%,0)' : 'translate3d(0,10%,0)',
     opacity: visable ? 1 : 0,
   })
@@ -115,7 +116,7 @@ const SectionComponent: React.FC<ISectionComponentProps> = ({
   return (
     <AnimationSetter darkmode={dark} isfirst={First}>
       <SectionWrapper
-        style={props}
+        style={transIn}
         ref={el}
         darkmode={dark}
         isfirst={First}
