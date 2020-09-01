@@ -18,7 +18,7 @@ const FooterSvgsWrapper = styled.div`
   }
 `
 
-const CallToAction = styled.h3`
+const CallToAction = styled.h1`
   margin: 0 0.4375rem;
   line-height: 1.5rem;
   font-size: 1.25rem;
@@ -31,21 +31,26 @@ const SocialLink = styled(Link)`
   color: #fff;
 `
 //Interfaces
-interface IFooterSvgsProps {}
 
 //React Component
-const FooterSvgs: React.FC<IFooterSvgsProps> = ({}) => {
+const FooterSvgs: React.FC = () => {
   const SocialIcons = [
-    { title: FBIcon, Ihref: '/#FB' },
-    { title: TwitterIcon, Ihref: '#/Twiter' },
-    { title: IGIcon, Ihref: '/#IG' },
+    { name: 'Facebook', component: FBIcon, Ihref: '/#FB' },
+    { name: 'Twitter', component: TwitterIcon, Ihref: '#/Twiter' },
+    { name: 'Instagram', component: IGIcon, Ihref: '/#IG' },
   ]
   return (
     <FooterSvgsWrapper>
       <CallToAction>Follow Us</CallToAction>
       {SocialIcons.map((Icon) => (
-        <SocialLink to={Icon.Ihref} rel="noreferrer" target="_blank">
-          {<Icon.title />}
+        <SocialLink
+          id={`footer-social-icon-${Icon.name}`}
+          to={Icon.Ihref}
+          key={Icon.name}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {<Icon.component />}
         </SocialLink>
       ))}
     </FooterSvgsWrapper>

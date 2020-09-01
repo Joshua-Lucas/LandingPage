@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { api, ICreateNewUser } from '../../../utils/ApiCalls/Api'
 
 //Styled Components
 const SignUpWrapper = styled.div`
@@ -18,6 +19,7 @@ const SignUpWrapper = styled.div`
   align-items: center;
   border-radius: 11px;
   box-shadow: 0 0 34px 0 rgba(0, 0, 0, 0.35);
+  color: ${(props) => props.theme.signupTextDark};
   font-family: Montserrat;
   padding: 0 16.5px;
 
@@ -77,7 +79,7 @@ const SignUpButton = styled.button`
   font-size: 1.5rem;
   letter-spacing: 0;
   line-height: 28px;
-  color: ${(props) => props.theme.headerLight};
+  color: ${(props) => props.theme.signupTextLight};
 
   &:hover,
   &:focus {
@@ -90,22 +92,35 @@ const SignUpButton = styled.button`
 
 //React Component
 const SignUpModal: React.FC = () => {
+  const [emailData, setEmailData] = useState<ICreateNewUser>({ email: '' })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailData({ email: e.target.value })
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    api.postEmail(emailData)
+  }
+
   return (
     <SignUpWrapper>
       <SignUpHeader>SIGN UP</SignUpHeader>
       <SignUpSubHeader>
         Sign up for a chance to win a free copy of Halo Infinite
       </SignUpSubHeader>
-      <SignUpForm>
+      <SignUpForm onSubmit={handleSubmit}>
         <SignUpLabel htmlFor="Email">
           <SignUpInput
             id="Email"
             type="email"
             placeholder="Email Address*"
+            value={emailData.email}
+            onChange={handleChange}
             required
           ></SignUpInput>
         </SignUpLabel>
-        <SignUpButton>Sign Up</SignUpButton>
+        <SignUpButton type="submit">Sign Up</SignUpButton>
       </SignUpForm>
     </SignUpWrapper>
   )

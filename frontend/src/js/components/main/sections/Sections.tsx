@@ -24,7 +24,6 @@ export type TSectionData = {
 const Sections: React.FC = () => {
   const [sectionData, setSectionData] = useState<TSectionData[]>([])
 
-  //   Fetching data from api
   useEffect(() => {
     const FetchSectionData = async () => {
       const Result = await api.getArticles()
@@ -35,8 +34,8 @@ const Sections: React.FC = () => {
 
   return (
     <SectionDiv>
-      <SectionComponent dark={true} First={'true'} Data={sectionData[0]} />
-      <SectionComponent reverse={true} Data={sectionData[1]} />
+      <SectionComponent dark={'true'} First={'true'} Data={sectionData[0]} />
+      <SectionComponent reverse={'true'} Data={sectionData[1]} />
     </SectionDiv>
   )
 }
