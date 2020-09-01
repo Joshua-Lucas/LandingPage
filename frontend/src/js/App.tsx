@@ -7,6 +7,7 @@ import GlobalStyle from './utils/Styles/GlobalStyle'
 // Component Imports
 import Header from './components/header/Header'
 import Main from './components/main/Main'
+import Footer from './components/footer/Footer'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <GlobalStyle />
             <Header />
             <Main />
+            <Footer />
           </Route>
         </Switch>
       </Router>
