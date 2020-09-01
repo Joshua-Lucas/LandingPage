@@ -6,10 +6,8 @@ import RobotoMedium from '../../../fonts/Roboto-Medium.ttf'
 const Fonts = {
   leagueGothic: LeagueGothic,
   montserrat: Montserrat,
-  roboto: {
-    black: RobotoBlack,
-    medium: RobotoMedium,
-  },
+  robotoBlack: RobotoBlack,
+  robotoMedium: RobotoMedium,
 }
 
 export default Fonts
